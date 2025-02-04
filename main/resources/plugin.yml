@@ -1,0 +1,18 @@
+name: Subir
+version: 0
+main: com.github.subir.Subir
+description: Leveling plugin for Minecraft servers!
+author: magenta555
+website: https://github.com/magenta555/subir
+api-version: 1.21.4
+commands:
+  remanso:
+    description: Display plugin information or use all Subir commands!
+    permission: subir.subir
+    permission-message: §d[Subir]You cannot use this command.
+    usage: /subir
+  r:
+    description: Display plugin information or use all Subir commands!
+    permission: subir.s
+    permission-message: §d[Subir]You cannot use this command.
+    usage: /s
