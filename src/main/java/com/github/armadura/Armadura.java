@@ -14,6 +14,7 @@ public class Armadura extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new ArmorListener(this), this);
 
+        armorListener = new ArmorListener(this);
 
         new BukkitRunnable() {
             @Override
