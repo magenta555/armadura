@@ -12,4 +12,4 @@ commands:
 permissions:
   armadura.armor:
     description: Allows players to use the /armor command
-    default: true
+    default: op
