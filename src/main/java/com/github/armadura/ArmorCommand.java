@@ -20,13 +20,13 @@ public class ArmorCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "This command can only be used by players.");
+            sender.sendMessage(ChatColor.AQUA + "This command can only be used by players.");
             return true;
         }
 
         Player player = (Player) sender;
         if (args.length != 2) {
-            player.sendMessage(ChatColor.RED + "Usage: /armor [potion effect] [magnitude]");
+            player.sendMessage(ChatColor.AQUA + "Usage: /armor [potion effect] [magnitude]");
             return true;
         }
 
@@ -36,19 +36,19 @@ public class ArmorCommand implements CommandExecutor, TabCompleter {
         try {
             magnitude = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
-            player.sendMessage(ChatColor.RED + "Invalid magnitude. Must be a number.");
+            player.sendMessage(ChatColor.AQUA + "Invalid magnitude. Must be a number.");
             return true;
         }
         PotionEffectType potionEffectType = PotionEffectType.getByName(potionEffectName);
 
         if (potionEffectType == null) {
-            player.sendMessage(ChatColor.RED + "Invalid potion effect.");
+            player.sendMessage(ChatColor.AQUA + "Invalid potion effect.");
             return true;
         }
 
         ItemStack item = player.getInventory().getItemInMainHand();
         if (item == null || item.getType() == Material.AIR) {
-            player.sendMessage(ChatColor.RED + "You must be holding an armor piece.");
+            player.sendMessage(ChatColor.AQUA + "You must be holding an armor piece.");
             return true;
         }
 
@@ -59,12 +59,12 @@ public class ArmorCommand implements CommandExecutor, TabCompleter {
             lore = new ArrayList<>();
         }
 
-        String loreText = ChatColor.DARK_PURPLE + potionEffectName + " " + toRoman(magnitude);
+        String loreText = ChatColor.AQUA + potionEffectName + " " + toRoman(magnitude);
         lore.add(loreText);
         meta.setLore(lore);
         item.setItemMeta(meta);
 
-        player.sendMessage(ChatColor.GREEN + "Potion effect added to the armor!");
+        player.sendMessage(ChatColor.AQUA + "Potion effect added to the armor!");
         return true;
     }
 
