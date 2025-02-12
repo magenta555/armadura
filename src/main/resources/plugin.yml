@@ -1,18 +1,15 @@
-name: Subir
+name: Armadura
 version: 0
-main: com.github.subir.Subir
-description: Leveling plugin for Minecraft servers!
-author: magenta555
-website: https://github.com/magenta555/subir
+main: com.github.armadura.Armadura
 api-version: 1.21.4
+author: magenta555
+website: github.com/magenta555/armadura
 commands:
-  remanso:
-    description: Display plugin information or use all Subir commands!
-    permission: subir.subir
-    permission-message: §d[Subir]You cannot use this command.
-    usage: /subir
-  r:
-    description: Display plugin information or use all Subir commands!
-    permission: subir.s
-    permission-message: §d[Subir]You cannot use this command.
-    usage: /s
+  armor:
+    description: Opens the armor menu.
+    usage: /armor
+    permission: armadura.armor
+permissions:
+  armadura.armor:
+    description: Allows players to use the /armor command
+    default: true

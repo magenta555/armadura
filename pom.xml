@@ -1,7 +1,7 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.subir</groupId>
-  <artifactId>Subir</artifactId>
+  <groupId>com.github.armadura</groupId>
+  <artifactId>Armadura</artifactId>
   <version>0</version>
   <repositories>
     <repository>
@@ -18,7 +18,6 @@
     </dependency>
   </dependencies>
 <properties>
-    <maven.compiler.source>21</maven.compiler.source>
-    <maven.compiler.target>21</maven.compiler.target>
+    <maven.compiler.release>21</maven.compiler.release>
 </properties>
 </project>
