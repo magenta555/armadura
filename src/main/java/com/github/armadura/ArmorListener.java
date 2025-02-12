@@ -32,7 +32,6 @@ public class ArmorListener implements Listener {
 
     @SuppressWarnings("deprecation")
     private void applyArmorEffects(Player player) {
-        // Clear existing potion effects from armor
         for (PotionEffectType type : PotionEffectType.values()) {
             if (type != null && player.hasPotionEffect(type)) {
                 player.removePotionEffect(type);
@@ -54,11 +53,11 @@ public class ArmorListener implements Listener {
                             String[] parts = effectData.split(" ");
                             if (parts.length == 2) {
                                 String effectName = parts[0].toUpperCase();
-                                int magnitude = romanToInt(parts[1]); // Convert Roman numeral to integer
+                                int magnitude = romanToInt(parts[1]); 
 
                                 PotionEffectType potionEffectType = PotionEffectType.getByName(effectName);
                                 if (potionEffectType != null) {
-                                    player.addPotionEffect(new PotionEffect(potionEffectType, 40 * 20, magnitude - 1, false, false)); // 40 seconds, magnitude -1
+                                    player.addPotionEffect(new PotionEffect(potionEffectType, 40 * 20, magnitude - 1, false, false));
                                 }
                             }
                         }
@@ -68,7 +67,6 @@ public class ArmorListener implements Listener {
         }
     }
 
-    // Helper function to convert Roman numerals to integers
     private int romanToInt(String roman) {
         String romanLiterals[] = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int romanValues[] = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};

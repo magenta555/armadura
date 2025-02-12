@@ -8,12 +8,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.Material;
+import org.bukkit.command.TabCompleter;
 
 import java.util.ArrayList;
 import java.util.List;
 import org.bukkit.potion.PotionEffectType;
 
-public class ArmorCommand implements CommandExecutor {
+public class ArmorCommand implements CommandExecutor, TabCompleter {
 
     @SuppressWarnings("deprecation")
     @Override
@@ -35,7 +36,7 @@ public class ArmorCommand implements CommandExecutor {
         try {
             magnitude = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
-            player.sendMessage(ChatColor.RED + "Invalid magnitude.  Must be a number.");
+            player.sendMessage(ChatColor.RED + "Invalid magnitude. Must be a number.");
             return true;
         }
         PotionEffectType potionEffectType = PotionEffectType.getByName(potionEffectName);
@@ -67,7 +68,6 @@ public class ArmorCommand implements CommandExecutor {
         return true;
     }
 
-    // Helper function to convert integers to Roman numerals
     private String toRoman(int num) {
         String[] romanLiterals = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
         int[] romanValues = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
@@ -81,5 +81,21 @@ public class ArmorCommand implements CommandExecutor {
             }
         }
         return roman.toString();
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        if (args.length == 1) {
+            List<String> completions = new ArrayList<>();
+            for (PotionEffectType type : PotionEffectType.values()) {
+                if (type != null && type.getName().toUpperCase().startsWith(args[0].toUpperCase())) {
+                    completions.add(type.getName());
+                }
+            }
+            return completions;
+        } else {
+            return null;
+        }
     }
 }
