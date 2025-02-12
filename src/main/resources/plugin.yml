@@ -6,10 +6,10 @@ author: magenta555
 website: github.com/magenta555/armadura
 commands:
   armor:
-    description: Opens the armor menu.
+    description: Give a potion effect enchantment to the piece of armor that you're holding.
     usage: /armor
     permission: armadura.armor
 permissions:
   armadura.armor:
-    description: Allows players to use the /armor command
+    description: Allows players to use the /armor command.
     default: op
