@@ -22,7 +22,7 @@ public class Armadura extends JavaPlugin {
                     armorListener.applyArmorEffects(player);
                 }
             }
-        }.runTaskTimer(this, 0L, 20);
+        }.runTaskTimer(this, 0L, 1);
 
     }
 
