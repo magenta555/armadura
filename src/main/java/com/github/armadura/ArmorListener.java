@@ -47,7 +47,7 @@ public class ArmorListener implements Listener {
                 if (meta.hasLore()) {
                     List<String> lore = meta.getLore();
                     for (String loreLine : lore) {
-                        if (loreLine.startsWith(ChatColor.DARK_PURPLE.toString())) {
+                        if (loreLine.startsWith(ChatColor.AQUA.toString())) {
                             String effectData = ChatColor.stripColor(loreLine);
                             String[] parts = effectData.split(" ");
                             if (parts.length == 2) {
