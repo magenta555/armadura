@@ -6,8 +6,6 @@ public final class Armadura extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("Armadura plugin enabled!");
-
         getCommand("armor").setExecutor(new ArmorCommand());
 
         getServer().getPluginManager().registerEvents(new ArmorListener(this), this);
@@ -15,6 +13,5 @@ public final class Armadura extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info("Armadura plugin disabled!");
     }
 }
