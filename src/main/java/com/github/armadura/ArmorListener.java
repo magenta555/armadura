@@ -2,9 +2,7 @@ package com.github.armadura;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -22,16 +20,8 @@ public class ArmorListener implements Listener {
             this.plugin = plugin;
     }
 
-    @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getPlayer() instanceof Player) {
-            Player player = (Player) event.getPlayer();
-            applyArmorEffects(player);
-        }
-    }
-
     @SuppressWarnings("deprecation")
-    private void applyArmorEffects(Player player) {
+    public void applyArmorEffects(Player player) {
         for (PotionEffectType type : PotionEffectType.values()) {
             if (type != null && player.hasPotionEffect(type)) {
                 player.removePotionEffect(type);
@@ -56,7 +46,7 @@ public class ArmorListener implements Listener {
 
                                 PotionEffectType potionEffectType = PotionEffectType.getByName(effectName);
                                 if (potionEffectType != null) {
-                                    player.addPotionEffect(new PotionEffect(potionEffectType, 40 * 20, magnitude - 1, false, false));
+                                    player.addPotionEffect(new PotionEffect(potionEffectType, 12 * 20, magnitude - 1, false, false));
                                 }
                             }
                         }
